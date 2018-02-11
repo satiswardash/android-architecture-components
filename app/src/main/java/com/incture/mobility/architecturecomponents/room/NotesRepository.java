@@ -33,11 +33,23 @@ public class NotesRepository {
 
     }
 
-    public void updateNotes(Notes notes) {
-        mNotesDao.updateExistingNote(notes);
+    public void updateNotes(final Notes notes) {
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                mNotesDao.updateExistingNote(notes);
+            }
+        });
+        thread.start();
     }
 
-    public void deleteNotes(Notes notes) {
-        mNotesDao.deleteExistingNote(notes);
+    public void deleteNotes(final Notes notes) {
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                mNotesDao.deleteExistingNote(notes);
+            }
+        });
+        thread.start();
     }
 }

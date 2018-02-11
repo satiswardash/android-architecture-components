@@ -37,4 +37,13 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="38dp"
         android:text="Save" />
+
+    <Button
+        android:id="@+id/delete_note_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/save_note_button"
+        android:layout_below="@+id/save_note_button"
+        android:text="Delete"
+        android:visibility="invisible"/>
 </RelativeLayout>

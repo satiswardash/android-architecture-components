@@ -62,15 +62,16 @@ public class NoteListActivityFragment extends Fragment {
             @Override
             public void onChanged(@Nullable List<Notes> notes) {
                 adapter.setmLiveData(notes);
-                //bindData();
-                adapter.notifyItemInserted(adapter.getItemCount() -1);
+                adapter.notifyDataSetChanged();
                 if (flag) {
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
 
                         @Override
                         public void run() {
-                            recyclerView.smoothScrollToPosition(adapter.getItemCount()-1);
+                            if (adapter.getItemCount() > 0) {
+                                recyclerView.smoothScrollToPosition(adapter.getItemCount()-1);
+                            }
                         }
                     }, 400);
                 } else {

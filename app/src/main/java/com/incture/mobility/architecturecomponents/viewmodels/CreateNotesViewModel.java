@@ -21,4 +21,12 @@ public class CreateNotesViewModel extends ViewModel {
     public void createNewNote(Notes notes) {
         mNotesRepository.createNewNotes(notes);
     }
+
+    public void updateNote(Notes notes) {
+        mNotesRepository.updateNotes(notes);
+    }
+
+    public void deleteNote(Notes notes) {
+        mNotesRepository.deleteNotes(notes);
+    }
 }
