@@ -3,4 +3,5 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_note_details">NoteDetailsActivity</string>
     <string name="title_note_list">My Notes</string>
+    <string name="title_activity_create_note">CreateNoteActivity</string>
 </resources>

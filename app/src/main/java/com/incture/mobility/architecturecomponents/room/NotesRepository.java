@@ -1,6 +1,7 @@
 package com.incture.mobility.architecturecomponents.room;
 
 import android.arch.lifecycle.LiveData;
+import android.arch.persistence.room.Room;
 
 import java.util.List;
 
@@ -20,8 +21,16 @@ public class NotesRepository {
         return mNotesDao.getAllNotes();
     }
 
-    public void createNewNotes(Notes notes) {
-        mNotesDao.createNewNote(notes);
+    public void createNewNotes(final Notes notes) {
+
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                mNotesDao.createNewNote(notes);
+            }
+        });
+        thread.start();
+
     }
 
     public void updateNotes(Notes notes) {

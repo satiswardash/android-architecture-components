@@ -4,6 +4,7 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 import android.arch.persistence.room.TypeConverters;
+import android.support.annotation.NonNull;
 
 import com.incture.mobility.architecturecomponents.Utils.DateConverter;
 
@@ -13,10 +14,11 @@ import java.util.Date;
  * Created by satiswardash on 10/02/18.
  */
 
-@Entity(indices = {@Index("ts"), @Index(value = "timestamp")})
+@Entity
 public class Notes {
 
     @PrimaryKey
+    @NonNull
     private String id;
     private String title;
     private String description;
