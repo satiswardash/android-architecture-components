@@ -4,6 +4,8 @@ import android.arch.lifecycle.LiveData;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 /**
  * Created by satiswardash on 11/02/18.
  */
@@ -16,6 +18,7 @@ public class NotesRepository {
      * {@link NotesDao} object dependency injection to Constructor
      * @param mNotesDao
      */
+    @Inject
     public NotesRepository(NotesDao mNotesDao) {
         this.mNotesDao = mNotesDao;
     }

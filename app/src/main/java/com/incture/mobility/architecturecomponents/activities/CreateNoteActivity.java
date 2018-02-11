@@ -8,9 +8,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.incture.mobility.architecturecomponents.ArchitectureComponents;
 import com.incture.mobility.architecturecomponents.R;
 import com.incture.mobility.architecturecomponents.Utils.BaseActivity;
 import com.incture.mobility.architecturecomponents.Utils.Constants;
+import com.incture.mobility.architecturecomponents.dagger.ApplicationComponent;
 import com.incture.mobility.architecturecomponents.room.Notes;
 import com.incture.mobility.architecturecomponents.viewmodels.CreateNotesViewModel;
 import com.incture.mobility.architecturecomponents.viewmodels.ViewModelFactory;
@@ -18,10 +20,16 @@ import com.incture.mobility.architecturecomponents.viewmodels.ViewModelFactory;
 import java.util.Date;
 import java.util.UUID;
 
+import javax.inject.Inject;
+
+/**
+ * Created by satiswardash on 11/02/18.
+ */
 public class CreateNoteActivity extends BaseActivity {
 
+    @Inject
+    ViewModelFactory mViewModelFactory;
     private CreateNotesViewModel mCreateNotesViewModel;
-
     private EditText mTitleEditText;
     private EditText mDescriptionEditText;
     private Button mSaveButton;
@@ -34,10 +42,15 @@ public class CreateNoteActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Inject the current activity inside Dagger 2 dependency graph
+        ApplicationComponent applicationComponent = ((ArchitectureComponents)getApplication()).getApplicationComponent();
+        applicationComponent.inject(this);
+
         init();
         mCreateNotesViewModel =
                 ViewModelProviders
-                        .of(this, new ViewModelFactory())
+                        .of(this, mViewModelFactory)
                         .get(CreateNotesViewModel.class);
 
         Bundle bundle = getIntent().getBundleExtra(Constants.BUNDLE_KEY);

@@ -16,8 +16,10 @@ import com.incture.mobility.architecturecomponents.Utils.BaseActivity;
 import com.incture.mobility.architecturecomponents.fragments.NoteListActivityFragment;
 import com.incture.mobility.architecturecomponents.viewmodels.NoteListViewModel;
 
+/**
+ * Created by satiswardash on 11/02/18.
+ */
 public class NoteListActivity extends BaseActivity {
-
 
     /**
      *

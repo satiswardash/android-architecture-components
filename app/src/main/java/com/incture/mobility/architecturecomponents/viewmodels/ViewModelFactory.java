@@ -7,6 +7,8 @@ import android.support.annotation.NonNull;
 import com.incture.mobility.architecturecomponents.ArchitectureComponents;
 import com.incture.mobility.architecturecomponents.room.NotesRepository;
 
+import javax.inject.Inject;
+
 /**
  * Created by satiswardash on 10/02/18.
  */
@@ -15,8 +17,9 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
 
     private NotesRepository mNotesRepository;
 
-    public ViewModelFactory() {
-        mNotesRepository = ArchitectureComponents.getRepository();
+    @Inject
+    public ViewModelFactory(NotesRepository repository) {
+        mNotesRepository = repository;
     }
 
     @NonNull

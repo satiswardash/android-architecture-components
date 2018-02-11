@@ -15,8 +15,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.incture.mobility.architecturecomponents.ArchitectureComponents;
 import com.incture.mobility.architecturecomponents.R;
 import com.incture.mobility.architecturecomponents.adapters.DisplayNotesRecyclerAdapter;
+import com.incture.mobility.architecturecomponents.dagger.ApplicationComponent;
 import com.incture.mobility.architecturecomponents.room.Notes;
 import com.incture.mobility.architecturecomponents.viewmodels.NoteListViewModel;
 import com.incture.mobility.architecturecomponents.viewmodels.ViewModelFactory;
@@ -24,14 +26,19 @@ import com.incture.mobility.architecturecomponents.viewmodels.ViewModelFactory;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 /**
- * A placeholder fragment containing a simple view.
+ * Created by satiswardash on 11/02/18.
  */
 public class NoteListActivityFragment extends Fragment {
 
     private boolean SCROLL_FLAG = false;
 
     private NoteListViewModel mNoteListViewModel;
+    @Inject
+    ViewModelFactory mViewModelFactory;
+
     private RecyclerView mNotesRecyclerView;
     private DisplayNotesRecyclerAdapter mNotesRecyclerAdapter;
 
@@ -48,9 +55,12 @@ public class NoteListActivityFragment extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
 
-        mNoteListViewModel = ViewModelProviders.of(this, new ViewModelFactory()).get(NoteListViewModel.class);
-        mNotesRecyclerAdapter = new DisplayNotesRecyclerAdapter(getContext(), new ArrayList<Notes>());
+        //Inject the current activity inside Dagger 2 dependency graph
+        ApplicationComponent applicationComponent = ((ArchitectureComponents)getActivity().getApplication()).getApplicationComponent();
+        applicationComponent.inject(this);
 
+        mNoteListViewModel = ViewModelProviders.of(this, mViewModelFactory).get(NoteListViewModel.class);
+        mNotesRecyclerAdapter = new DisplayNotesRecyclerAdapter(getContext(), new ArrayList<Notes>());
     }
 
     /**
