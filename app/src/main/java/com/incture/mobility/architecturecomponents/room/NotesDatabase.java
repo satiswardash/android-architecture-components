@@ -3,10 +3,12 @@ package com.incture.mobility.architecturecomponents.room;
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.RoomDatabase;
 
+import com.incture.mobility.architecturecomponents.Utils.Constants;
+
 /**
  * Created by satiswardash on 11/02/18.
  */
-@Database(entities = {Notes.class}, version = 1)
+@Database(entities = {Notes.class}, version = Constants.DATABASE_VERSION)
 public abstract class NotesDatabase extends RoomDatabase {
 
     public abstract NotesDao getNotesDao();

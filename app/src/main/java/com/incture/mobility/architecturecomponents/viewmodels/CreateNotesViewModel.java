@@ -14,7 +14,6 @@ public class CreateNotesViewModel extends ViewModel {
     private NotesRepository mNotesRepository;
 
     public CreateNotesViewModel(NotesRepository mNotesRepository) {
-
         this.mNotesRepository = mNotesRepository;
     }
 

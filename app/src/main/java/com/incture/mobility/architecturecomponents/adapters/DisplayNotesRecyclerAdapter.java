@@ -1,6 +1,5 @@
 package com.incture.mobility.architecturecomponents.adapters;
 
-import android.arch.lifecycle.LiveData;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -13,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.incture.mobility.architecturecomponents.R;
+import com.incture.mobility.architecturecomponents.Utils.ApplicationUtility;
+import com.incture.mobility.architecturecomponents.Utils.Constants;
 import com.incture.mobility.architecturecomponents.activities.CreateNoteActivity;
 import com.incture.mobility.architecturecomponents.room.Notes;
 
@@ -24,8 +25,6 @@ import java.util.Random;
  */
 
 public class DisplayNotesRecyclerAdapter extends RecyclerView.Adapter<DisplayNotesRecyclerAdapter.ViewHolder> {
-
-    int colors[] = {};
 
     private Context mContext;
     private List<Notes> mLiveData;
@@ -51,6 +50,10 @@ public class DisplayNotesRecyclerAdapter extends RecyclerView.Adapter<DisplayNot
         return mLiveData.size();
     }
 
+    public void setmLiveData(List<Notes> mLiveData) {
+        this.mLiveData = mLiveData;
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView color;
@@ -66,40 +69,26 @@ public class DisplayNotesRecyclerAdapter extends RecyclerView.Adapter<DisplayNot
             color = itemView.findViewById(R.id.al_title_color);
         }
 
-        public void bindDataItem (int position) {
-
+        public void bindDataItem(int position) {
             final Notes notes = mLiveData.get(position);
-
             if (notes != null) {
                 title.setText(notes.getTitle());
                 timestamp.setText(DateUtils.getRelativeTimeSpanString(notes.getTimestamp().getTime()));
-                color.setText(""+notes.getTitle().charAt(0));
+                color.setText("" + notes.getTitle().charAt(0));
                 color.setAllCaps(true);
-                Random rnd = new Random();
-                int colorCode = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
-                color.setBackgroundColor(colorCode);
+                color.setBackgroundColor(ApplicationUtility.getInstance().getColor());
 
                 view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         Intent intent = new Intent(mContext, CreateNoteActivity.class);
                         Bundle bundle = new Bundle();
-                        bundle.putParcelable("note", notes);
-                        intent.putExtra("bundle", bundle);
+                        bundle.putParcelable(Constants.NOTES_KEY, notes);
+                        intent.putExtra(Constants.BUNDLE_KEY, bundle);
                         mContext.startActivity(intent);
-
                     }
                 });
             }
-
         }
-    }
-
-    public List<Notes> getmLiveData() {
-        return mLiveData;
-    }
-
-    public void setmLiveData(List<Notes> mLiveData) {
-        this.mLiveData = mLiveData;
     }
 }

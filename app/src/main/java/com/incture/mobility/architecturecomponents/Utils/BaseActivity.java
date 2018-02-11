@@ -12,7 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 public class BaseActivity extends AppCompatActivity {
 
     /**
-     *
+     *Add fragment to the frame layout
      * @param fragmentManager
      * @param fragment
      * @param frameId

@@ -29,66 +29,88 @@ import java.util.List;
  */
 public class NoteListActivityFragment extends Fragment {
 
-    NoteListViewModel mNoteListViewModel;
-    RecyclerView recyclerView;
-    DisplayNotesRecyclerAdapter adapter;
+    private boolean SCROLL_FLAG = false;
 
-    boolean flag = false;
+    private NoteListViewModel mNoteListViewModel;
+    private RecyclerView mNotesRecyclerView;
+    private DisplayNotesRecyclerAdapter mNotesRecyclerAdapter;
 
+    //Required default constructor
     public NoteListActivityFragment() {
     }
 
+    /**
+     *Get the view model instance using factory method
+     * Instantiate new recycler view adapter and set empty array list of Notes
+     * @param context
+     */
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
 
         mNoteListViewModel = ViewModelProviders.of(this, new ViewModelFactory()).get(NoteListViewModel.class);
-        adapter = new DisplayNotesRecyclerAdapter(getContext(), new ArrayList<Notes>());
+        mNotesRecyclerAdapter = new DisplayNotesRecyclerAdapter(getContext(), new ArrayList<Notes>());
 
     }
 
+    /**
+     *Inflate the fragment layout and its view components
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_note_list, container, false);
     }
 
+    /**
+     *Initialize the view components and add the listeners once the fragment layout gets inflated
+     * @param view
+     * @param savedInstanceState
+     */
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        recyclerView = view.findViewById(R.id.note_list_recycler_view);
+        mNotesRecyclerView = view.findViewById(R.id.note_list_recycler_view);
         bindData();
 
         mNoteListViewModel.getAllNotes().observe(this, new Observer<List<Notes>>() {
             @Override
             public void onChanged(@Nullable List<Notes> notes) {
-                adapter.setmLiveData(notes);
-                adapter.notifyDataSetChanged();
-                if (flag) {
+                mNotesRecyclerAdapter.setmLiveData(notes);
+                mNotesRecyclerAdapter.notifyDataSetChanged();
+                if (SCROLL_FLAG) {
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
 
                         @Override
                         public void run() {
-                            if (adapter.getItemCount() > 0) {
-                                recyclerView.smoothScrollToPosition(adapter.getItemCount()-1);
+                            if (mNotesRecyclerAdapter.getItemCount() > 0) {
+                                mNotesRecyclerView.smoothScrollToPosition(mNotesRecyclerAdapter.getItemCount()-1);
                             }
                         }
                     }, 400);
                 } else {
-                    flag = true;
+                    SCROLL_FLAG = true;
                 }
             }
         });
     }
 
+    /**
+     * Bind the adapter to recycler view using linear layout manager
+     */
     private void bindData() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        recyclerView.setLayoutManager(layoutManager);
+        mNotesRecyclerView.setLayoutManager(layoutManager);
+
+        //Setting the divider for separating items in recycler view
         DividerItemDecoration itemDecoration = new DividerItemDecoration(
-                recyclerView.getContext(),
+                mNotesRecyclerView.getContext(),
                 layoutManager.getOrientation()
         );
-
         itemDecoration.setDrawable(
                 ContextCompat.getDrawable(
                         getActivity(),
@@ -96,10 +118,10 @@ public class NoteListActivityFragment extends Fragment {
                 )
         );
 
-        recyclerView.addItemDecoration(
+        mNotesRecyclerView.addItemDecoration(
                 itemDecoration
         );
 
-        recyclerView.setAdapter(adapter);
+        mNotesRecyclerView.setAdapter(mNotesRecyclerAdapter);
     }
 }

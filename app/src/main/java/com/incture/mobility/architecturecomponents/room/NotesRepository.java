@@ -1,7 +1,6 @@
 package com.incture.mobility.architecturecomponents.room;
 
 import android.arch.lifecycle.LiveData;
-import android.arch.persistence.room.Room;
 
 import java.util.List;
 
@@ -13,14 +12,26 @@ public class NotesRepository {
 
     private NotesDao mNotesDao;
 
+    /**
+     * {@link NotesDao} object dependency injection to Constructor
+     * @param mNotesDao
+     */
     public NotesRepository(NotesDao mNotesDao) {
         this.mNotesDao = mNotesDao;
     }
 
+    /**
+     * Fetch all notes
+     * @return
+     */
     public LiveData<List<Notes>> getListOfNotes() {
         return mNotesDao.getAllNotes();
     }
 
+    /**
+     *Create new note
+     * @param notes
+     */
     public void createNewNotes(final Notes notes) {
 
         Thread thread = new Thread(new Runnable() {
@@ -30,9 +41,12 @@ public class NotesRepository {
             }
         });
         thread.start();
-
     }
 
+    /**
+     *Update existing note
+     * @param notes
+     */
     public void updateNotes(final Notes notes) {
         Thread thread = new Thread(new Runnable() {
             @Override
@@ -43,6 +57,10 @@ public class NotesRepository {
         thread.start();
     }
 
+    /**
+     *Delete existing note
+     * @param notes
+     */
     public void deleteNotes(final Notes notes) {
         Thread thread = new Thread(new Runnable() {
             @Override

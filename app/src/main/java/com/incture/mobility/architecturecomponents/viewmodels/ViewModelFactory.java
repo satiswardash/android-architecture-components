@@ -13,19 +13,20 @@ import com.incture.mobility.architecturecomponents.room.NotesRepository;
 
 public class ViewModelFactory implements ViewModelProvider.Factory {
 
+    private NotesRepository mNotesRepository;
 
+    public ViewModelFactory() {
+        mNotesRepository = ArchitectureComponents.getRepository();
+    }
 
     @NonNull
     @Override
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
         if (modelClass.isAssignableFrom(CreateNotesViewModel.class))
-            return (T) new CreateNotesViewModel(ArchitectureComponents.getRepository());
-
-        else if (modelClass.isAssignableFrom(NoteDetailsViewModel.class))
-            return (T) new NoteDetailsViewModel(ArchitectureComponents.getRepository());
+            return (T) new CreateNotesViewModel(mNotesRepository);
 
         else if (modelClass.isAssignableFrom(NoteListViewModel.class))
-            return (T) new NoteListViewModel(ArchitectureComponents.getRepository());
+            return (T) new NoteListViewModel(mNotesRepository);
 
         else {
             throw new IllegalArgumentException("ViewModel Not Found");

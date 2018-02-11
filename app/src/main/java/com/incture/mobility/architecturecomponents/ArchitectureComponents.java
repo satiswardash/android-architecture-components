@@ -3,6 +3,7 @@ package com.incture.mobility.architecturecomponents;
 import android.app.Application;
 import android.arch.persistence.room.Room;
 
+import com.incture.mobility.architecturecomponents.Utils.Constants;
 import com.incture.mobility.architecturecomponents.room.NotesDao;
 import com.incture.mobility.architecturecomponents.room.NotesDatabase;
 import com.incture.mobility.architecturecomponents.room.NotesRepository;
@@ -18,7 +19,7 @@ public class ArchitectureComponents extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        NotesDao dao = Room.databaseBuilder(this, NotesDatabase.class, "Notes_Database").build().getNotesDao();
+        NotesDao dao = Room.databaseBuilder(this, NotesDatabase.class, Constants.DATABASE_NAME).build().getNotesDao();
         repository = new NotesRepository(dao);
     }
 

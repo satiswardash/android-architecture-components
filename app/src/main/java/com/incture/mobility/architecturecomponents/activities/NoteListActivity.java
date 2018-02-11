@@ -30,7 +30,7 @@ public class NoteListActivity extends BaseActivity {
     }
 
     /**
-     *
+     *Initialize activity layout
      */
     private void init() {
 
