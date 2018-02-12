@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -45,7 +46,7 @@ import javax.inject.Inject;
 public class CreateNoteActivity extends BaseActivity {
 
     @Inject
-    private ViewModelFactory mViewModelFactory;
+    public ViewModelFactory mViewModelFactory;
     private CreateNotesViewModel mCreateNotesViewModel;
 
     private static final String TAG = CreateNoteActivity.class.toString();
@@ -54,7 +55,7 @@ public class CreateNoteActivity extends BaseActivity {
     public int mCameraPermission;
     public int mExtRStoragePermission;
     public int mExtWStoragePermission;
-    private Uri mCurrentPhotoPath;
+    private Uri mCurrentPhotoPath = Uri.EMPTY;
 
     private EditText mTitleEditText;
     private EditText mDescriptionEditText;
@@ -146,9 +147,15 @@ public class CreateNoteActivity extends BaseActivity {
         mOptionButton.setText(R.string.delete);
 
         if (!notes.getImageUri().isEmpty()) {
-            Uri uri = Uri.parse(notes.getImageUri());
-            mImageView.setVisibility(View.VISIBLE);
-            Picasso.with(getApplicationContext()).load(uri).into(mImageView);
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Uri uri = Uri.parse(notes.getImageUri());
+                    mImageView.setVisibility(View.VISIBLE);
+                    Picasso.with(getApplicationContext()).load(uri).into(mImageView);
+                }
+            }, 100);
         }
 
         mOptionButton.setOnClickListener(new View.OnClickListener() {

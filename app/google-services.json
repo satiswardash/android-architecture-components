@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "831413028130",
+    "firebase_url": "https://architecture-components-3fa78.firebaseio.com",
+    "project_id": "architecture-components-3fa78",
+    "storage_bucket": "architecture-components-3fa78.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:831413028130:android:cd46bc77cbf88268",
+        "android_client_info": {
+          "package_name": "com.incture.mobility.architecturecomponents"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "831413028130-t46m0r1iei3accbjbff9imkq8aj4f725.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.incture.mobility.architecturecomponents",
+            "certificate_hash": "dbe098fb3e7567e3c9d95900b004a54974cf8b94"
+          }
+        },
+        {
+          "client_id": "831413028130-msvj7tmi50lbkdik45tn9f6lc2fd28tk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzQw0upMc_skVypkWacvvFQvbXCe89f5o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "831413028130-msvj7tmi50lbkdik45tn9f6lc2fd28tk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
