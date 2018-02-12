@@ -40,6 +40,10 @@ dependencies {
     compile "com.google.dagger:dagger:2.13"
     annotationProcessor "com.google.dagger:dagger-compiler:2.13"
 
+    //Butter-knife dependencies for view bindings
+    compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
     //Firebase dependencies
     compile 'com.google.firebase:firebase-firestore:11.8.0'
 

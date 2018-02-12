@@ -40,6 +40,9 @@ import java.util.UUID;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by satiswardash on 11/02/18.
  */
@@ -57,12 +60,18 @@ public class CreateNoteActivity extends BaseActivity {
     public int mExtWStoragePermission;
     private Uri mCurrentPhotoPath = Uri.EMPTY;
 
-    private EditText mTitleEditText;
-    private EditText mDescriptionEditText;
-    private Button mSaveButton;
-    private Button mOptionButton;
-    private Toolbar mToolbar;
-    private ImageView mImageView;
+    @BindView(R.id.note_title_editText)
+    EditText mTitleEditText;
+    @BindView(R.id.note_description_edit_text)
+    EditText mDescriptionEditText;
+    @BindView(R.id.save_note_button)
+    Button mSaveButton;
+    @BindView(R.id.delete_note_button)
+    Button mOptionButton;
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
+    @BindView(R.id.note_imageView)
+    ImageView mImageView;
 
     /**
      * @param savedInstanceState
@@ -185,13 +194,8 @@ public class CreateNoteActivity extends BaseActivity {
      */
     private void init() {
         setContentView(R.layout.activity_create_note);
-        mToolbar = findViewById(R.id.toolbar);
+        ButterKnife.bind(this);
         setSupportActionBar(mToolbar);
-        mTitleEditText = findViewById(R.id.note_title_editText);
-        mDescriptionEditText = findViewById(R.id.note_description_edit_text);
-        mSaveButton = findViewById(R.id.save_note_button);
-        mOptionButton = findViewById(R.id.delete_note_button);
-        mImageView = findViewById(R.id.note_imageView);
         mImageView.setVisibility(View.INVISIBLE);
     }
 

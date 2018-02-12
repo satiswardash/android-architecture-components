@@ -16,11 +16,18 @@ import com.incture.mobility.architecturecomponents.Utils.BaseActivity;
 import com.incture.mobility.architecturecomponents.fragments.NoteListActivityFragment;
 import com.incture.mobility.architecturecomponents.viewmodels.NoteListViewModel;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by satiswardash on 11/02/18.
  */
 public class NoteListActivity extends BaseActivity {
 
+    @BindView(R.id.anl_toolbar)
+    Toolbar mToolbar;
+    @BindView(R.id.create_new_note_fab)
+    FloatingActionButton mCreateNoteFab;
     /**
      *
      * @param savedInstanceState
@@ -35,13 +42,11 @@ public class NoteListActivity extends BaseActivity {
      *Initialize activity layout
      */
     private void init() {
-
         setContentView(R.layout.activity_note_list);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.anl_toolbar);
-        setSupportActionBar(toolbar);
+        ButterKnife.bind(this);
+        setSupportActionBar(mToolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.create_new_note_fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        mCreateNoteFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), CreateNoteActivity.class);

@@ -28,6 +28,9 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by satiswardash on 11/02/18.
  */
@@ -39,7 +42,8 @@ public class NoteListActivityFragment extends Fragment {
     @Inject
     ViewModelFactory mViewModelFactory;
 
-    private RecyclerView mNotesRecyclerView;
+    @BindView(R.id.note_list_recycler_view)
+    RecyclerView mNotesRecyclerView;
     private DisplayNotesRecyclerAdapter mNotesRecyclerAdapter;
 
     //Required default constructor
@@ -83,7 +87,7 @@ public class NoteListActivityFragment extends Fragment {
      */
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        mNotesRecyclerView = view.findViewById(R.id.note_list_recycler_view);
+        ButterKnife.bind(this, view);
         bindData();
 
         mNoteListViewModel.getAllNotes().observe(this, new Observer<List<Notes>>() {

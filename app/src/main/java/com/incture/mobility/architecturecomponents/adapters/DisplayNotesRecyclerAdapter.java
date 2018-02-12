@@ -20,6 +20,9 @@ import com.incture.mobility.architecturecomponents.room.Notes;
 import java.util.List;
 import java.util.Random;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by satiswardash on 11/02/18.
  */
@@ -56,17 +59,15 @@ public class DisplayNotesRecyclerAdapter extends RecyclerView.Adapter<DisplayNot
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView color;
-        TextView title;
-        TextView timestamp;
+        @BindView(R.id.al_title_color) TextView color;
+        @BindView(R.id.al_note_title) TextView title;
+        @BindView(R.id.al_note_timestamp) TextView timestamp;
         View view;
 
         public ViewHolder(View itemView) {
             super(itemView);
+            ButterKnife.bind(this, itemView);
             view = itemView;
-            title = itemView.findViewById(R.id.al_note_title);
-            timestamp = itemView.findViewById(R.id.al_note_timestamp);
-            color = itemView.findViewById(R.id.al_title_color);
         }
 
         public void bindDataItem(int position) {
