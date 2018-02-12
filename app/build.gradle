@@ -40,7 +40,10 @@ dependencies {
     compile "com.google.dagger:dagger:2.13"
     annotationProcessor "com.google.dagger:dagger-compiler:2.13"
 
+    //3rd party library
+    compile 'com.squareup.picasso:picasso:2.5.2'
 
+    //Test dependencies
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'

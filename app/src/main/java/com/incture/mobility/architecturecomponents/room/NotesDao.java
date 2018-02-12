@@ -17,14 +17,14 @@ import java.util.List;
 public interface NotesDao {
 
     @Query("SELECT * FROM NOTES")
-    LiveData<List<Notes>> getAllNotes();
+    LiveData<List<Notes>> fetch();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void createNewNote(Notes notes);
+    void save(Notes notes);
 
     @Delete
-    void deleteExistingNote(Notes notes);
+    void delete(Notes notes);
 
     @Update
-    void updateExistingNote(Notes notes);
+    void update(Notes notes);
 }

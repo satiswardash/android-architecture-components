@@ -26,12 +26,14 @@ public class Notes implements Parcelable {
     private String description;
     @TypeConverters({DateConverter.class})
     private Date timestamp;
+    private String imageUri;
 
-    public Notes(String id, String title, String description, Date timestamp) {
+    public Notes(@NonNull String id, String title, String description, Date timestamp, String imageUri) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.timestamp = timestamp;
+        this.imageUri = imageUri;
     }
 
     public String getId() {
@@ -66,6 +68,14 @@ public class Notes implements Parcelable {
         this.timestamp = timestamp;
     }
 
+    public String getImageUri() {
+        return imageUri;
+    }
+
+    public void setImageUri(String imageUri) {
+        this.imageUri = imageUri;
+    }
+
 
     @Override
     public int describeContents() {
@@ -78,6 +88,7 @@ public class Notes implements Parcelable {
         dest.writeString(this.title);
         dest.writeString(this.description);
         dest.writeLong(this.timestamp != null ? this.timestamp.getTime() : -1);
+        dest.writeString(this.imageUri);
     }
 
     protected Notes(Parcel in) {
@@ -86,9 +97,10 @@ public class Notes implements Parcelable {
         this.description = in.readString();
         long tmpTimestamp = in.readLong();
         this.timestamp = tmpTimestamp == -1 ? null : new Date(tmpTimestamp);
+        this.imageUri = in.readString();
     }
 
-    public static final Parcelable.Creator<Notes> CREATOR = new Parcelable.Creator<Notes>() {
+    public static final Creator<Notes> CREATOR = new Creator<Notes>() {
         @Override
         public Notes createFromParcel(Parcel source) {
             return new Notes(source);

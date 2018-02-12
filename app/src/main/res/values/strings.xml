@@ -6,4 +6,6 @@
     <string name="title_activity_create_note">CreateNoteActivity</string>
     <string name="update">Update</string>
     <string name="title_update_note">Update note</string>
+    <string name="delete">Delete</string>
+    <string name="attach">Attach</string>
 </resources>

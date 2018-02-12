@@ -28,7 +28,7 @@ public class NotesRepository {
      * @return
      */
     public LiveData<List<Notes>> getListOfNotes() {
-        return mNotesDao.getAllNotes();
+        return mNotesDao.fetch();
     }
 
     /**
@@ -40,7 +40,7 @@ public class NotesRepository {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                mNotesDao.createNewNote(notes);
+                mNotesDao.save(notes);
             }
         });
         thread.start();
@@ -54,7 +54,7 @@ public class NotesRepository {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                mNotesDao.updateExistingNote(notes);
+                mNotesDao.update(notes);
             }
         });
         thread.start();
@@ -68,7 +68,7 @@ public class NotesRepository {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                mNotesDao.deleteExistingNote(notes);
+                mNotesDao.delete(notes);
             }
         });
         thread.start();
