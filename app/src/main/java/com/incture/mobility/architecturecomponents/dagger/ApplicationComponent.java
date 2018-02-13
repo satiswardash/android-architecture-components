@@ -1,5 +1,9 @@
 package com.incture.mobility.architecturecomponents.dagger;
 
+import android.app.Application;
+
+import com.incture.mobility.architecturecomponents.ArchitectureComponents;
+import com.incture.mobility.architecturecomponents.Utils.NetworkUtility;
 import com.incture.mobility.architecturecomponents.activities.CreateNoteActivity;
 import com.incture.mobility.architecturecomponents.fragments.NoteListActivityFragment;
 

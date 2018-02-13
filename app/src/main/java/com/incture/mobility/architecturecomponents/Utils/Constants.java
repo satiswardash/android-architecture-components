@@ -11,4 +11,10 @@ public interface Constants {
 
     String DATABASE_NAME = "Notes_Database";
     int DATABASE_VERSION = 1;
+
+    String NOTES_COLLECTION = "notes";
+    String NOTE_TITLE = "title";
+    String NOTE_DESCRIPTION = "description";
+    String NOTE_TIMESTAMP = "timestamp";
+    String NOTE_IMAGE_URL = "imageUri";
 }

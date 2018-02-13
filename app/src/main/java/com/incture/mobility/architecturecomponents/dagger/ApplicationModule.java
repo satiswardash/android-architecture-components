@@ -1,10 +1,16 @@
 package com.incture.mobility.architecturecomponents.dagger;
 
+import android.app.Application;
 import android.arch.lifecycle.ViewModelProvider;
 import android.arch.persistence.room.Room;
+import android.content.Context;
 
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreSettings;
 import com.incture.mobility.architecturecomponents.ArchitectureComponents;
 import com.incture.mobility.architecturecomponents.Utils.Constants;
+import com.incture.mobility.architecturecomponents.Utils.NetworkUtility;
 import com.incture.mobility.architecturecomponents.room.NotesDao;
 import com.incture.mobility.architecturecomponents.room.NotesDatabase;
 import com.incture.mobility.architecturecomponents.room.NotesRepository;
@@ -23,20 +29,29 @@ public class ApplicationModule {
     private final NotesDatabase database;
 
     public ApplicationModule(ArchitectureComponents application) {
+        this.application = application;
+
         database = Room
                 .databaseBuilder(application, NotesDatabase.class, Constants.DATABASE_NAME)
                 .build();
-        this.application = application;
     }
 
     @Provides
-    ArchitectureComponents provideArchitectureComponentsApplication() {
+    FirebaseFirestore provideFirebaseFirestore(Context context) {
+
+        FirebaseApp.initializeApp(context);
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
+                .setPersistenceEnabled(true)
+                .build();
+        firestore.setFirestoreSettings(settings);
+
+        return firestore;
+    }
+
+    @Provides
+    Context provideContext() {
         return application;
-    }
-
-    @Provides
-    NotesDao provideNotesDao(NotesDatabase database) {
-        return database.getNotesDao();
     }
 
     @Provides
@@ -45,8 +60,13 @@ public class ApplicationModule {
     }
 
     @Provides
-    NotesRepository provideNotesRepository(NotesDao notesDao) {
-        return new NotesRepository(notesDao);
+    NotesDao provideNotesDao(NotesDatabase database) {
+        return database.getNotesDao();
+    }
+
+    @Provides
+    NotesRepository provideNotesRepository(NotesDao notesDao, Context context, FirebaseFirestore network) {
+        return new NotesRepository(context, notesDao, network);
     }
 
     @Provides

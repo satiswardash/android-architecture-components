@@ -30,6 +30,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import dagger.android.AndroidInjection;
 
 /**
  * Created by satiswardash on 11/02/18.
@@ -95,7 +96,9 @@ public class NoteListActivityFragment extends Fragment {
             public void onChanged(@Nullable List<Notes> notes) {
                 mNotesRecyclerAdapter.setmLiveData(notes);
                 mNotesRecyclerAdapter.notifyDataSetChanged();
-                if (SCROLL_FLAG) {
+
+                //Uncomment this if you want to scroll the recycler view layout to be scrolled at the bottom
+                /*if (SCROLL_FLAG) {
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
 
@@ -108,7 +111,7 @@ public class NoteListActivityFragment extends Fragment {
                     }, 400);
                 } else {
                     SCROLL_FLAG = true;
-                }
+                }*/
             }
         });
     }

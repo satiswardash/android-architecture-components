@@ -16,8 +16,11 @@ import java.util.List;
 @Dao
 public interface NotesDao {
 
-    @Query("SELECT * FROM NOTES")
-    LiveData<List<Notes>> fetch();
+    @Query("SELECT * FROM NOTES ORDER BY timestamp desc")
+    LiveData<List<Notes>> fetchLiveData();
+
+    @Query("SELECT * FROM NOTES ORDER BY timestamp desc")
+    List<Notes> fetch();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void save(Notes notes);
