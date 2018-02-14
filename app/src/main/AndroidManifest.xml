@@ -2,11 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.incture.mobility.architecturecomponents">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".ArchitectureComponents"
@@ -29,8 +29,8 @@
         <activity
             android:name=".activities.CreateNoteActivity"
             android:label="@string/title_activity_create_note"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=".activities.NoteListActivity"></activity>
+            android:parentActivityName=".activities.NoteListActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -39,9 +39,22 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths"/>
+                android:resource="@xml/provider_paths" />
         </provider>
-        
+
+        <receiver
+            android:name=".services.ConnectivityChangedReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <!-- <action android:name="android.net.wifi.WIFI_STATE_CHANGED" /> -->
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".services.DataSyncService"
+            android:exported="false"/>
     </application>
 
 </manifest>

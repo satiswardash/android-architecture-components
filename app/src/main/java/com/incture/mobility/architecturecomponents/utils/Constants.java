@@ -1,4 +1,4 @@
-package com.incture.mobility.architecturecomponents.Utils;
+package com.incture.mobility.architecturecomponents.utils;
 
 /**
  * Created by satiswardash on 11/02/18.

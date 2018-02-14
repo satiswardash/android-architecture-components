@@ -1,4 +1,4 @@
-package com.incture.mobility.architecturecomponents.Utils;
+package com.incture.mobility.architecturecomponents.utils;
 
 import android.graphics.Color;
 

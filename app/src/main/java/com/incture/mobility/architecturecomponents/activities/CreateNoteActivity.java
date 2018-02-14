@@ -24,10 +24,10 @@ import android.widget.Toast;
 import com.incture.mobility.architecturecomponents.ArchitectureComponents;
 import com.incture.mobility.architecturecomponents.BuildConfig;
 import com.incture.mobility.architecturecomponents.R;
-import com.incture.mobility.architecturecomponents.Utils.BaseActivity;
-import com.incture.mobility.architecturecomponents.Utils.Constants;
-import com.incture.mobility.architecturecomponents.Utils.FileUtility;
-import com.incture.mobility.architecturecomponents.Utils.NetworkUtility;
+import com.incture.mobility.architecturecomponents.utils.BaseActivity;
+import com.incture.mobility.architecturecomponents.utils.Constants;
+import com.incture.mobility.architecturecomponents.utils.FileUtility;
+import com.incture.mobility.architecturecomponents.utils.NetworkUtility;
 import com.incture.mobility.architecturecomponents.dagger.ApplicationComponent;
 import com.incture.mobility.architecturecomponents.room.Notes;
 import com.incture.mobility.architecturecomponents.viewmodels.CreateNotesViewModel;
@@ -43,7 +43,6 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import dagger.android.AndroidInjection;
 
 /**
  * Created by satiswardash on 11/02/18.

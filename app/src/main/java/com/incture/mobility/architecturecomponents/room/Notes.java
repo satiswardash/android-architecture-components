@@ -1,14 +1,13 @@
 package com.incture.mobility.architecturecomponents.room;
 
 import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 import android.arch.persistence.room.TypeConverters;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 
-import com.incture.mobility.architecturecomponents.Utils.DateConverter;
+import com.incture.mobility.architecturecomponents.utils.DateConverter;
 
 import java.util.Date;
 

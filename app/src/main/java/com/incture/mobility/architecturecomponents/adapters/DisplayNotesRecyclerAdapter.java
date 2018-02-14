@@ -2,7 +2,6 @@ package com.incture.mobility.architecturecomponents.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateUtils;
@@ -12,13 +11,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.incture.mobility.architecturecomponents.R;
-import com.incture.mobility.architecturecomponents.Utils.ApplicationUtility;
-import com.incture.mobility.architecturecomponents.Utils.Constants;
+import com.incture.mobility.architecturecomponents.utils.ApplicationUtility;
+import com.incture.mobility.architecturecomponents.utils.Constants;
 import com.incture.mobility.architecturecomponents.activities.CreateNoteActivity;
 import com.incture.mobility.architecturecomponents.room.Notes;
 
 import java.util.List;
-import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

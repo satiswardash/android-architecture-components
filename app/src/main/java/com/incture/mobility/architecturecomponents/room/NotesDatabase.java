@@ -3,7 +3,7 @@ package com.incture.mobility.architecturecomponents.room;
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.RoomDatabase;
 
-import com.incture.mobility.architecturecomponents.Utils.Constants;
+import com.incture.mobility.architecturecomponents.utils.Constants;
 
 /**
  * Created by satiswardash on 11/02/18.

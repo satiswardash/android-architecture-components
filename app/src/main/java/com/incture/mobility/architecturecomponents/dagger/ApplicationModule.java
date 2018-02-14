@@ -1,6 +1,5 @@
 package com.incture.mobility.architecturecomponents.dagger;
 
-import android.app.Application;
 import android.arch.lifecycle.ViewModelProvider;
 import android.arch.persistence.room.Room;
 import android.content.Context;
@@ -9,8 +8,7 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
 import com.incture.mobility.architecturecomponents.ArchitectureComponents;
-import com.incture.mobility.architecturecomponents.Utils.Constants;
-import com.incture.mobility.architecturecomponents.Utils.NetworkUtility;
+import com.incture.mobility.architecturecomponents.utils.Constants;
 import com.incture.mobility.architecturecomponents.room.NotesDao;
 import com.incture.mobility.architecturecomponents.room.NotesDatabase;
 import com.incture.mobility.architecturecomponents.room.NotesRepository;

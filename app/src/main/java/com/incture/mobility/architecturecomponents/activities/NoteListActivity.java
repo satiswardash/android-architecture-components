@@ -3,16 +3,12 @@ package com.incture.mobility.architecturecomponents.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import com.incture.mobility.architecturecomponents.R;
-import com.incture.mobility.architecturecomponents.Utils.BaseActivity;
+import com.incture.mobility.architecturecomponents.utils.BaseActivity;
 import com.incture.mobility.architecturecomponents.fragments.NoteListActivityFragment;
 import com.incture.mobility.architecturecomponents.viewmodels.NoteListViewModel;
 

@@ -1,4 +1,4 @@
-package com.incture.mobility.architecturecomponents.Utils;
+package com.incture.mobility.architecturecomponents.utils;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

@@ -1,10 +1,8 @@
-package com.incture.mobility.architecturecomponents.Utils;
+package com.incture.mobility.architecturecomponents.utils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-
-import javax.inject.Inject;
 
 /**
  * Created by satiswardash on 20/12/17.

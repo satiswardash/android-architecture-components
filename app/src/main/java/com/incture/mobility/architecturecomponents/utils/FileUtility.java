@@ -1,8 +1,6 @@
-package com.incture.mobility.architecturecomponents.Utils;
+package com.incture.mobility.architecturecomponents.utils;
 
 import android.os.Environment;
-
-import com.incture.mobility.architecturecomponents.ArchitectureComponents;
 
 import java.io.File;
 import java.io.IOException;
