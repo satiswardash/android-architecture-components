@@ -3,7 +3,6 @@ package com.incture.mobility.architecturecomponents.fragments;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -19,7 +18,7 @@ import com.incture.mobility.architecturecomponents.ArchitectureComponents;
 import com.incture.mobility.architecturecomponents.R;
 import com.incture.mobility.architecturecomponents.adapters.DisplayNotesRecyclerAdapter;
 import com.incture.mobility.architecturecomponents.dagger.ApplicationComponent;
-import com.incture.mobility.architecturecomponents.room.Notes;
+import com.incture.mobility.architecturecomponents.db.Notes;
 import com.incture.mobility.architecturecomponents.viewmodels.NoteListViewModel;
 import com.incture.mobility.architecturecomponents.viewmodels.ViewModelFactory;
 
@@ -30,7 +29,6 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import dagger.android.AndroidInjection;
 
 /**
  * Created by satiswardash on 11/02/18.

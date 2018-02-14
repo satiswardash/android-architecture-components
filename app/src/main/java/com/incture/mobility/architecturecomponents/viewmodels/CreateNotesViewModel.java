@@ -2,8 +2,8 @@ package com.incture.mobility.architecturecomponents.viewmodels;
 
 import android.arch.lifecycle.ViewModel;
 
-import com.incture.mobility.architecturecomponents.room.Notes;
-import com.incture.mobility.architecturecomponents.room.NotesRepository;
+import com.incture.mobility.architecturecomponents.db.Notes;
+import com.incture.mobility.architecturecomponents.db.NotesRepository;
 
 /**
  * Created by satiswardash on 11/02/18.

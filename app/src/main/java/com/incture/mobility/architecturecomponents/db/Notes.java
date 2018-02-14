@@ -1,4 +1,4 @@
-package com.incture.mobility.architecturecomponents.room;
+package com.incture.mobility.architecturecomponents.db;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;

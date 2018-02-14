@@ -1,4 +1,4 @@
-package com.incture.mobility.architecturecomponents.room;
+package com.incture.mobility.architecturecomponents.db;
 
 import android.arch.lifecycle.LiveData;
 import android.content.Context;
@@ -7,9 +7,7 @@ import android.support.annotation.NonNull;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
 import com.incture.mobility.architecturecomponents.utils.Constants;

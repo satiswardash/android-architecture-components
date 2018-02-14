@@ -9,9 +9,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
 import com.incture.mobility.architecturecomponents.ArchitectureComponents;
 import com.incture.mobility.architecturecomponents.utils.Constants;
-import com.incture.mobility.architecturecomponents.room.NotesDao;
-import com.incture.mobility.architecturecomponents.room.NotesDatabase;
-import com.incture.mobility.architecturecomponents.room.NotesRepository;
+import com.incture.mobility.architecturecomponents.db.NotesDao;
+import com.incture.mobility.architecturecomponents.db.NotesDatabase;
+import com.incture.mobility.architecturecomponents.db.NotesRepository;
 import com.incture.mobility.architecturecomponents.viewmodels.ViewModelFactory;
 
 import dagger.Module;
@@ -68,7 +68,7 @@ public class ApplicationModule {
     }
 
     @Provides
-    ViewModelProvider.Factory provideViewModelFactory(NotesRepository repository) {
-        return new ViewModelFactory(repository);
+    ViewModelProvider.Factory provideViewModelFactory(Context context, NotesRepository repository) {
+        return new ViewModelFactory(context, repository);
     }
 }

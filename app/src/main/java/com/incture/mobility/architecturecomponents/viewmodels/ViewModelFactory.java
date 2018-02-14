@@ -2,10 +2,10 @@ package com.incture.mobility.architecturecomponents.viewmodels;
 
 import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
+import android.content.Context;
 import android.support.annotation.NonNull;
 
-import com.incture.mobility.architecturecomponents.ArchitectureComponents;
-import com.incture.mobility.architecturecomponents.room.NotesRepository;
+import com.incture.mobility.architecturecomponents.db.NotesRepository;
 
 import javax.inject.Inject;
 
@@ -16,10 +16,12 @@ import javax.inject.Inject;
 public class ViewModelFactory implements ViewModelProvider.Factory {
 
     private NotesRepository mNotesRepository;
+    private Context mContext;
 
     @Inject
-    public ViewModelFactory(NotesRepository repository) {
+    public ViewModelFactory(Context context, NotesRepository repository) {
         mNotesRepository = repository;
+        mContext = context;
     }
 
     @NonNull
@@ -29,7 +31,7 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
             return (T) new CreateNotesViewModel(mNotesRepository);
 
         else if (modelClass.isAssignableFrom(NoteListViewModel.class))
-            return (T) new NoteListViewModel(mNotesRepository);
+            return (T) new NoteListViewModel(mContext, mNotesRepository);
 
         else {
             throw new IllegalArgumentException("ViewModel Not Found");

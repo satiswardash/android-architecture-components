@@ -47,8 +47,9 @@ dependencies {
     //Firebase dependencies
     compile 'com.google.firebase:firebase-firestore:11.8.0'
 
-    //3rd party library
+    //Other 3rd party library
     compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
 
     //Test dependencies
     testImplementation 'junit:junit:4.12'

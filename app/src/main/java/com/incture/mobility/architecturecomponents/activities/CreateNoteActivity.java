@@ -29,7 +29,7 @@ import com.incture.mobility.architecturecomponents.utils.Constants;
 import com.incture.mobility.architecturecomponents.utils.FileUtility;
 import com.incture.mobility.architecturecomponents.utils.NetworkUtility;
 import com.incture.mobility.architecturecomponents.dagger.ApplicationComponent;
-import com.incture.mobility.architecturecomponents.room.Notes;
+import com.incture.mobility.architecturecomponents.db.Notes;
 import com.incture.mobility.architecturecomponents.viewmodels.CreateNotesViewModel;
 import com.incture.mobility.architecturecomponents.viewmodels.ViewModelFactory;
 import com.squareup.picasso.Picasso;

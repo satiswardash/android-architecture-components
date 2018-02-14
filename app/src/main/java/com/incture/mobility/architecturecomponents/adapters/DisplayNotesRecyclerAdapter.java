@@ -14,7 +14,7 @@ import com.incture.mobility.architecturecomponents.R;
 import com.incture.mobility.architecturecomponents.utils.ApplicationUtility;
 import com.incture.mobility.architecturecomponents.utils.Constants;
 import com.incture.mobility.architecturecomponents.activities.CreateNoteActivity;
-import com.incture.mobility.architecturecomponents.room.Notes;
+import com.incture.mobility.architecturecomponents.db.Notes;
 
 import java.util.List;
 

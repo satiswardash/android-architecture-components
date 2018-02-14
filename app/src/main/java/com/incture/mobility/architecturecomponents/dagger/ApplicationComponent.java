@@ -1,6 +1,7 @@
 package com.incture.mobility.architecturecomponents.dagger;
 
 import com.incture.mobility.architecturecomponents.activities.CreateNoteActivity;
+import com.incture.mobility.architecturecomponents.activities.NoteListActivity;
 import com.incture.mobility.architecturecomponents.fragments.NoteListActivityFragment;
 import com.incture.mobility.architecturecomponents.services.DataSyncService;
 
@@ -14,4 +15,5 @@ public interface ApplicationComponent {
 
     void inject(NoteListActivityFragment fragment);
     void inject(CreateNoteActivity activity);
+    void inject(NoteListActivity activity);
 }

@@ -11,22 +11,14 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
 import com.google.firebase.firestore.SetOptions;
-import com.incture.mobility.architecturecomponents.ArchitectureComponents;
-import com.incture.mobility.architecturecomponents.dagger.ApplicationComponent;
-import com.incture.mobility.architecturecomponents.room.Notes;
-import com.incture.mobility.architecturecomponents.room.NotesDao;
-import com.incture.mobility.architecturecomponents.room.NotesDatabase;
+import com.incture.mobility.architecturecomponents.db.Notes;
+import com.incture.mobility.architecturecomponents.db.NotesDao;
+import com.incture.mobility.architecturecomponents.db.NotesDatabase;
 import com.incture.mobility.architecturecomponents.utils.Constants;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.inject.Inject;
-
-import dagger.android.AndroidInjection;
-import dagger.android.AndroidInjector;
-import dagger.android.HasServiceInjector;
 
 
 /**
